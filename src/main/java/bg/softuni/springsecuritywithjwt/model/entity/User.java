@@ -29,6 +29,9 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "role")
     private Role role;
 
+    @OneToMany(targetEntity = Token.class, mappedBy = "user")
+    private List<Token> tokens;
+
     public User() {
 
     }
@@ -75,6 +78,15 @@ public class User extends BaseEntity implements UserDetails {
 
     public User setRole(Role role) {
         this.role = role;
+        return this;
+    }
+
+    public List<Token> getTokens() {
+        return tokens;
+    }
+
+    public User setTokens(List<Token> tokens) {
+        this.tokens = tokens;
         return this;
     }
 
