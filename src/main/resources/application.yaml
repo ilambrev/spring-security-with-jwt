@@ -5,7 +5,7 @@ spring:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
   jpa:
-#    database-platform: org.hibernate.dialect.MySQLDialect
+    #    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
     properties:
@@ -28,3 +28,11 @@ logging:
     #      org.hibernate.stat: debug
     org.hibernate:sql: debug
 #      org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+application:
+  security:
+    jwt:
+      secret-key: 8bca91a0afcc4c59f0e1c0ceadc8a9f603122bb6b497ec5f3eeb2ca6273ed5b5
+      expiration: 86400000 # one day
+      refresh-token:
+        expiration: 604800000 # seven days
