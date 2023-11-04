@@ -46,7 +46,7 @@ public class AuthenticationService {
                 .setLastName(request.getLastName())
                 .setEmail(request.getEmail())
                 .setPassword(this.passwordEncoder.encode(request.getPassword()))
-                .setRole(Role.USER);
+                .setRole(request.getRole());
 
         User savedUser = this.userRepository.save(user);
 

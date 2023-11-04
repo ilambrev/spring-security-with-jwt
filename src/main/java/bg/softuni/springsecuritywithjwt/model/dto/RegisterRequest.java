@@ -1,5 +1,7 @@
 package bg.softuni.springsecuritywithjwt.model.dto;
 
+import bg.softuni.springsecuritywithjwt.model.enums.Role;
+
 public class RegisterRequest {
 
     private String firstName;
@@ -10,15 +12,18 @@ public class RegisterRequest {
 
     private String password;
 
+    private Role role;
+
     public RegisterRequest() {
 
     }
 
-    public RegisterRequest(String firstName, String lastName, String email, String password) {
+    public RegisterRequest(String firstName, String lastName, String email, String password, Role role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public String getFirstName() {
@@ -54,6 +59,15 @@ public class RegisterRequest {
 
     public RegisterRequest setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public RegisterRequest setRole(Role role) {
+        this.role = role;
         return this;
     }
 
