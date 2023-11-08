@@ -1,0 +1,58 @@
+### Register User
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "firstname": "Patar",
+  "lastname": "Petrov",
+  "email": "petrov@test.bg",
+  "password": "secret",
+  "role": "ADMIN"
+}
+
+> {% client.global.set("auth-token", response.body.access_token); %}
+
+### Create a new book
+POST http://localhost:8080/api/v1/books
+Authorization: Bearer {{auth-token}}
+Content-Type: application/json
+
+{
+  "title": "Java Persistence with Spring Data and Hibernate",
+  "author": "Catalin Tudose",
+  "isbn": "1617299189"
+}
+
+### Query the Books endpoint
+GET http://localhost:8080/api/v1/books
+Authorization: Bearer {{auth-token}}
+
+### Register User
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "firstname": "Todor",
+  "lastname": "Todorov",
+  "email": "todorov@test.bg",
+  "password": "secret",
+  "role": "ADMIN"
+}
+
+> {% client.global.set("auth-token", response.body.access_token); %}
+
+### Update the book
+PUT http://localhost:8080/api/v1/books
+Authorization: Bearer {{auth-token}}
+Content-Type: application/json
+
+{
+  "id": "1",
+  "title": "Java Persistence with Spring Data and Hibernate",
+  "author": "Catalin Tudose",
+  "isbn": "978-1617299186"
+}
+
+### Query the Books endpoint
+GET http://localhost:8080/api/v1/books
+Authorization: Bearer {{auth-token}}
